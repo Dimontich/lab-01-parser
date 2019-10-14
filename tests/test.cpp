@@ -2,6 +2,48 @@
 
 #include <gtest/gtest.h>
 
-TEST(Example, EmptyTest) {
-    EXPECT_TRUE(true);
+#include "../include/Json.h"
+
+std::string json = "{    \"lastname\" : \"Ivanov\",    \"firstname\" : \"Ivan\",    \"age\" : 25,    \"islegal\" : false,    \"marks\" : [    	4,5,5,5,2,3    ],    \"address\" : {    	\"city\" : \"Moscow\",        \"street\" : \"Vozdvijenka\"  }}";
+
+Json object = Json::parse(json);
+
+TEST(Json_parser,string_test)
+{
+    EXPECT_EQ(std::any_cast<std::string>(object["lastname"]), "Ivanov");
 }
+
+TEST(Json_parser,bool_test)
+{
+    EXPECT_EQ(std::any_cast<bool>(object["islegal"]), false);
+}
+
+TEST(Json_parser,int_test)
+{
+    EXPECT_EQ(std::any_cast<int>(object["age"]), 25);
+}
+
+auto marks = std::any_cast<Json>(object["marks"]);
+
+TEST(Json_parser,array_test1)
+{
+    EXPECT_EQ(std::any_cast<int>(marks[0]), 4);
+}
+
+TEST(Json_parser,array_test2)
+{
+    EXPECT_EQ(std::any_cast<int>(marks[1]), 5);
+}
+
+auto address = std::any_cast<Json>(object["address"]);
+
+TEST(Json_parser,object_test1)
+{
+    EXPECT_EQ(std::any_cast<std::string>(address["city"]), "Moscow");
+}
+
+TEST(Json_parser,object_test2)
+{
+    EXPECT_EQ(std::any_cast<std::string>(address["street"]), "Vozdvijenka");
+}
+

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cezar/CERZAR/workspace/labs/lab-01-parser/include/Json.h
+iostream
+-
+fstream
+-
+any
+-
+string
+-
+vector
+-
+unordered_map
+-
+exception
+-
+
+/home/cezar/CERZAR/workspace/labs/lab-01-parser/sources/main.cpp
+iostream
+-
+string
+-
+any
+-
+../include/Json.h
+/home/cezar/CERZAR/workspace/labs/lab-01-parser/include/Json.h
+
