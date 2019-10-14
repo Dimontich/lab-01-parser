@@ -1,4 +1,4 @@
-https://travis-ci.org/CERZAR/lab-01-parser.svg?branch=master
+[![Build Status](https://travis-ci.org/CERZAR/lab-01-parser.svg?branch=master)](https://travis-ci.org/CERZAR/lab-01-parser)
 # Задание 1
 Реализовать парсер данных в формате JSON.
 
