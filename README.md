@@ -1,3 +1,4 @@
+https://travis-ci.org/CERZAR/lab-01-parser.svg?branch=master
 # Задание 1
 Реализовать парсер данных в формате JSON.
 
