@@ -172,7 +172,7 @@ void Json::parse_object(const std::string& s, int& a, int& b)
                         if ((int)s.substr(c + 1, b - c).find_first_of("eE") != -1)
                             throw std::exception();
                     }
-                    value = get_double(s.substr(a, b - a));
+                    value = get_double(s.substr(a, b - a + 1));
                 }
                 break;
             }
@@ -290,7 +290,7 @@ void Json::parse_array(const std::string& s, int& a, int& b)
                         if ((int)s.substr(c + 1, b - c).find_first_of("eE") != -1)
                             throw std::exception();
                     }
-                    value = get_double(s.substr(a, b - a));
+                    value = get_double(s.substr(a, b - a + 1));
                 }
                 break;
             }
@@ -386,18 +386,18 @@ Json Json::parse(const std::string& s)
     return A;
 }
 
-Json Json::parseFile(const std::string& path_to_file)
-{
-    std::string s;
-    std::ifstream fstr;
-    fstr.open(path_to_file);
-    if (fstr)
-        while (!fstr.eof())
-        {
-            std::string b;
-            std::getline(fstr, b);
-            s += b;
-        }
-    Json A(s);
-    return A;
-}
+//Json Json::parseFile(const std::string& path_to_file)
+//{
+//    std::string s;
+//    std::ifstream fstr;
+//    fstr.open(path_to_file);
+//    if (fstr)
+//        while (!fstr.eof())
+//        {
+//            std::string b;
+//            std::getline(fstr, b);
+//            s += b;
+//        }
+//    Json A(s);
+//    return A;
+//}

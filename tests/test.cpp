@@ -4,7 +4,7 @@
 
 #include "../include/Json.h"
 
-std::string json = "{    \"lastname\" : \"Ivanov\",    \"firstname\" : \"Ivan\",    \"age\" : 25,    \"islegal\" : false,    \"marks\" : [    	4,5,5,5,2,3    ],    \"address\" : {    	\"city\" : \"Moscow\",        \"street\" : \"Vozdvijenka\"  }}";
+std::string json = "{    \"lastname\" : \"Ivanov\",    \"firstname\" : \"Ivan\",    \"age\" : 25,    \"double_test\" : 255.5e-3,    \"null_test\" : null,    \"islegal\" : false,    \"marks\" : [    	4,5,5,5,2,3    ],    \"address\" : {    	\"city\" : \"Moscow\",        \"street\" : \"Vozdvijenka\"  }}";
 
 Json object = Json::parse(json);
 
@@ -21,6 +21,16 @@ TEST(Json_parser,bool_test)
 TEST(Json_parser,int_test)
 {
     EXPECT_EQ(std::any_cast<int>(object["age"]), 25);
+}
+
+TEST(Json_parser,double_test)
+{
+    EXPECT_EQ(std::any_cast<double>(object["double_test"]), 0.2555);
+}
+
+TEST(Json_parser,null_test)
+{
+    EXPECT_EQ(std::any_cast<std::nullptr_t>(object["null_test"]), nullptr);
 }
 
 auto marks = std::any_cast<Json>(object["marks"]);
