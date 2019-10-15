@@ -4,7 +4,7 @@
 
 #include "../include/Json.h"
 
-std::string json = "{    \"lastname\" : \"Ivanov\",    \"firstname\" : \"Ivan\",    \"age\" : 25,    \"double_test\" : 255.5e-3,    \"null_test\" : null,    \"true_test\" : true,  \"islegal\" : false,    \"marks\" : [    	4,5,5,5,2,3    ],    \"address\" : {    	\"city\" : \"Moscow\",        \"street\" : \"Vozdvijenka\"  }}";
+std::string json = "{    \"lastname\" : \"Ivanov\",    \"firstname\" : \"Ivan\",    \"age\" : 25,    \"double_test\" : 255.5e-3,    \"null_test\" : null,    \"true_test\" : true,  \"islegal\" : false,    \"marks\" : [    	4,5,5,5,2,3.5e-2,{\"testkey\" : 6}, [5,7], \"test\", true, null    ],    \"address\" : {    	\"city\" : \"Moscow\",        \"street\" : \"Vozdvijenka\"  }}";
 
 Json object = Json::parse(json);
 
