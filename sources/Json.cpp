@@ -89,7 +89,7 @@ void Json::parse_object(const std::string& s, int& a, int& b)
         {
             if (map.empty())
             {
-                b = s.substr(a).find('}');
+                b = s.substr(a).find('}') + a;
                 check_whitespace(s.substr(a, b - a));
                 break;
             }
@@ -207,7 +207,7 @@ void Json::parse_object(const std::string& s, int& a, int& b)
         else
             check_whitespace(s.substr(a, b - a));
     }
-    json_map = map;
+    if (!map.empty()) json_map = map;
 }
 
 void Json::parse_array(const std::string& s, int& a, int& b)
@@ -222,7 +222,7 @@ void Json::parse_array(const std::string& s, int& a, int& b)
         {
             if (vector.empty())
             {
-                b = s.substr(a).find(']');
+                b = s.substr(a).find(']') + a;
                 check_whitespace(s.substr(a, b - a));
                 break;
             }
@@ -325,7 +325,7 @@ void Json::parse_array(const std::string& s, int& a, int& b)
         else
             check_whitespace(s.substr(a, b - a));
     }
-    json_map = vector;
+    if (!vector.empty()) json_map = vector;
 }
 
 Json::Json(const std::string& s)
