@@ -134,3 +134,23 @@ TEST(Json_parser, exception12)
     EXPECT_ANY_THROW(object = Json::parse("{\"key\":nulg  }\""));
 }
 
+TEST(Json_parser, exception13)
+{
+    EXPECT_ANY_THROW(object = Json::parse("[nulg]"));
+}
+
+TEST(Json_parser, exception14)
+{
+    EXPECT_ANY_THROW(object = Json::parse("[[144, 5]"));
+}
+
+TEST(Json_parser, exception15)
+{
+    EXPECT_ANY_THROW(object = Json::parse("[ggg]"));
+}
+
+TEST(Json_parser, exception16)
+{
+    EXPECT_ANY_THROW(object = Json::parse("{ggg}"));
+}
+

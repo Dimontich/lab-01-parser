@@ -99,8 +99,8 @@ void Json::parse_object(const std::string& s, int& a, int& b)
         check_whitespace(s.substr(a, b - a));
         a = b + 1;
         b = (int)s.substr(a).find('\"') + a;
-        if ((int)s.substr(a).find('\"') == -1)
-            throw std::exception();
+//        if ((int)s.substr(a).find('\"') == -1)
+//            throw std::exception();
         key = s.substr(a, b - a);
         a = b + 1;
         b = (int)s.substr(a).find(':') + a;
@@ -109,8 +109,8 @@ void Json::parse_object(const std::string& s, int& a, int& b)
         check_whitespace(s.substr(a, b - a));
         a = b + 1;
         b = (int)s.substr(a).find_first_of("{[\"0123456789tfn-") + a;
-        if ((int)s.substr(a).find_first_of("{[\"0123456789tfn-") == -1)
-            throw std::exception();
+//        if ((int)s.substr(a).find_first_of("{[\"0123456789tfn-") == -1)
+//            throw std::exception();
         check_whitespace(s.substr(a, b - a));
         switch (s[b])
         {

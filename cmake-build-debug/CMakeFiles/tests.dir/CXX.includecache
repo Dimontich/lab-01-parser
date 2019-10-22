@@ -294,6 +294,10 @@ unordered_map
 exception
 -
 
+/home/cezar/CERZAR/workspace/labs/lab-01-parser/sources/Json.cpp
+../include/Json.h
+/home/cezar/CERZAR/workspace/labs/lab-01-parser/include/Json.h
+
 /home/cezar/CERZAR/workspace/labs/lab-01-parser/tests/test.cpp
 gtest/gtest.h
 -
