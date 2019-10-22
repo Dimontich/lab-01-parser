@@ -76,73 +76,61 @@ TEST(Json_parser, Empty_array_exception)
 
 TEST(Json_parser, exception1)
 {
-    object = Json::parse("[   }");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(object = Json::parse("[   }"));
 }
 
 TEST(Json_parser, exception2)
 {
-    object = Json::parse("{   ]");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{   ]"));
 }
 
 TEST(Json_parser, exception3)
 {
-    object = Json::parse("{  ");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{  "));
 }
 
 TEST(Json_parser, exception4)
 {
-    object = Json::parse("{ssdf\"test\"}");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{ssdf\"test\"}"));
 }
 
 TEST(Json_parser, exception5)
 {
-    object = Json::parse("{\"key\":falst   }");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{\"key\":falst   }"));
 }
 
 TEST(Json_parser, exception6)
 {
-    object = Json::parse("{\"key\":{{\"key\":234}   }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{\"key\":{{\"key\":234}   }\""));
 }
 
 TEST(Json_parser, exception7)
 {
-    object = Json::parse("{\"key:falst   }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{\"key:falst   }\""));
 }
 
 TEST(Json_parser, exception8)
 {
-    object = Json::parse("{\"key\"falst   }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{\"key\"falst   }\""));
 }
 
 TEST(Json_parser, exception9)
 {
-    object = Json::parse("{\"key:gggg   }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(object = Json::parse("{\"key:gggg   }\""));
 }
 
 TEST(Json_parser, exception10)
 {
-    object = Json::parse("{\"key\":\"ggggg   }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{\"key\":\"ggggg   }\""));
 }
 
 TEST(Json_parser, exception11)
 {
-    object = Json::parse("{\"key\":44gg   }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(    object = Json::parse("{\"key\":44gg   }\""));
 }
 
 TEST(Json_parser, exception12)
 {
-    object = Json::parse("{\"key\":nulg  }\"");
-    EXPECT_ANY_THROW(object[0]);
+    EXPECT_ANY_THROW(object = Json::parse("{\"key\":nulg  }\""));
 }
 
