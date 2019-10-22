@@ -141,8 +141,8 @@ void Json::parse_object(const std::string& s, int& a, int& b)
             {
                 a = b;
                 b = (int)s.substr(a).find_first_of(" \t\n,}]") + a;
-                if ((int)s.substr(a).find_first_of(" \t\n,}]") == -1)
-                    throw std::exception();
+//                if ((int)s.substr(a).find_first_of(" \t\n,}]") == -1)
+//                    throw std::exception();
                 b--;
                 if ((int)s.substr(a + 1, b - a).find_first_not_of("0123456789") == -1)
                 {
@@ -155,8 +155,8 @@ void Json::parse_object(const std::string& s, int& a, int& b)
                     if ((int)s.substr(a + 1, b - a).find('.') != -1)
                     {
                         int c = (int)s.substr(a + 1, b - a).find('.') + a + 1;
-                        if ((int)s.substr(c + 1, b - c).find('.') != -1)
-                            throw std::exception();
+//                        if ((int)s.substr(c + 1, b - c).find('.') != -1)
+//                            throw std::exception();
                         if ((int)s.substr(c - 1, 1).find_first_not_of("0123456789") != -1 || (int)s.substr(c + 1, 1).find_first_not_of("0123456789") != -1)
                             throw std::exception();
                     }
