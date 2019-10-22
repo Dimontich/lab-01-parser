@@ -259,8 +259,8 @@ void Json::parse_array(const std::string& s, int& a, int& b)
             {
                 a = b;
                 b = (int)s.substr(a).find_first_of(" \t\n,}]") + a;
-                if ((int)s.substr(a).find_first_of(" \t\n,}]") == -1)
-                    throw std::exception();
+//                if ((int)s.substr(a).find_first_of(" \t\n,}]") == -1)
+//                    throw std::exception();
                 b--;
                 if ((int)s.substr(a + 1, b - a).find_first_not_of("0123456789") == -1)
                 {
@@ -315,8 +315,8 @@ void Json::parse_array(const std::string& s, int& a, int& b)
         vector.push_back(value);
         a = b + 1;
         b = (int)s.substr(a).find_first_of(",]") + a;
-        if ((int)s.substr(a).find_first_of(",]") == -1)
-            throw std::exception();
+//        if ((int)s.substr(a).find_first_of(",]") == -1)
+//            throw std::exception();
         if (s[b] == ']')
         {
             check_whitespace(s.substr(a, b - a));

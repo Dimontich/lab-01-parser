@@ -154,3 +154,20 @@ TEST(Json_parser, exception16)
     EXPECT_ANY_THROW(object = Json::parse("{ggg}"));
 }
 
+TEST(Json_parser, exception17)
+{
+    EXPECT_ANY_THROW(object = Json::parse("[\"g]"));
+}
+
+TEST(Json_parser, exception18)
+{
+    EXPECT_ANY_THROW(object = Json::parse("[15gg]"));
+}
+
+TEST(Json_parser, exception19)
+{
+    object = Json::parse("[456]");
+    EXPECT_ANY_THROW(object["key"]);
+}
+
+
