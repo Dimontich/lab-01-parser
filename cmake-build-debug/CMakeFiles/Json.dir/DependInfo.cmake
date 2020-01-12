@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cezar/CERZAR/workspace/labs/lab-01-parser/sources/Json.cpp" "/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/Json.dir/sources/Json.cpp.o"
+  "/Users/dmitrij/CLionProjects/lab-01-parser/sources/Json.cpp" "/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/Json.dir/sources/Json.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

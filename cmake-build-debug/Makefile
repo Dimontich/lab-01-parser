@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2019.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2019.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cezar/CERZAR/workspace/labs/lab-01-parser
+CMAKE_SOURCE_DIR = /Users/dmitrij/CLionProjects/lab-01-parser
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-d
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/clion-2019.2.4/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -67,21 +67,10 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/opt/clion-2019.2.4/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/opt/clion-2019.2.4/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -89,11 +78,22 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles /home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles /Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named main
+
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+#=============================================================================
 # Target rules for targets named tests
 
 # Build rule for target.
@@ -148,32 +161,6 @@ task3/fast:
 .PHONY : task3/fast
 
 #=============================================================================
-# Target rules for targets named json_parser
-
-# Build rule for target.
-json_parser: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 json_parser
-.PHONY : json_parser
-
-# fast build rule for target.
-json_parser/fast:
-	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/build
-.PHONY : json_parser/fast
-
-#=============================================================================
-# Target rules for targets named main
-
-# Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 main
-.PHONY : main
-
-# fast build rule for target.
-main/fast:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
-
-#=============================================================================
 # Target rules for targets named Json
 
 # Build rule for target.
@@ -186,6 +173,19 @@ Json/fast:
 	$(MAKE) -f CMakeFiles/Json.dir/build.make CMakeFiles/Json.dir/build
 .PHONY : Json/fast
 
+#=============================================================================
+# Target rules for targets named json_parser
+
+# Build rule for target.
+json_parser: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 json_parser
+.PHONY : json_parser
+
+# fast build rule for target.
+json_parser/fast:
+	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/build
+.PHONY : json_parser/fast
+
 sources/Json.o: sources/Json.cpp.o
 
 .PHONY : sources/Json.o
@@ -193,8 +193,8 @@ sources/Json.o: sources/Json.cpp.o
 # target to build an object file
 sources/Json.cpp.o:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/sources/Json.cpp.o
-	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/sources/Json.cpp.o
 	$(MAKE) -f CMakeFiles/Json.dir/build.make CMakeFiles/Json.dir/sources/Json.cpp.o
+	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/sources/Json.cpp.o
 .PHONY : sources/Json.cpp.o
 
 sources/Json.i: sources/Json.cpp.i
@@ -204,8 +204,8 @@ sources/Json.i: sources/Json.cpp.i
 # target to preprocess a source file
 sources/Json.cpp.i:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/sources/Json.cpp.i
-	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/sources/Json.cpp.i
 	$(MAKE) -f CMakeFiles/Json.dir/build.make CMakeFiles/Json.dir/sources/Json.cpp.i
+	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/sources/Json.cpp.i
 .PHONY : sources/Json.cpp.i
 
 sources/Json.s: sources/Json.cpp.s
@@ -215,8 +215,8 @@ sources/Json.s: sources/Json.cpp.s
 # target to generate assembly for a file
 sources/Json.cpp.s:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/sources/Json.cpp.s
-	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/sources/Json.cpp.s
 	$(MAKE) -f CMakeFiles/Json.dir/build.make CMakeFiles/Json.dir/sources/Json.cpp.s
+	$(MAKE) -f CMakeFiles/json_parser.dir/build.make CMakeFiles/json_parser.dir/sources/Json.cpp.s
 .PHONY : sources/Json.cpp.s
 
 sources/main.o: sources/main.cpp.o
@@ -307,13 +307,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... main"
 	@echo "... edit_cache"
 	@echo "... tests"
 	@echo "... task3"
-	@echo "... json_parser"
-	@echo "... main"
 	@echo "... Json"
-	@echo "... test"
+	@echo "... json_parser"
 	@echo "... sources/Json.o"
 	@echo "... sources/Json.i"
 	@echo "... sources/Json.s"

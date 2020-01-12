@@ -4,20 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cezar/CERZAR/workspace/labs/lab-01-parser/sources/Json.cpp" "/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir/sources/Json.cpp.o"
-  "/home/cezar/CERZAR/workspace/labs/lab-01-parser/tests/test.cpp" "/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir/tests/test.cpp.o"
+  "/Users/dmitrij/CLionProjects/lab-01-parser/sources/Json.cpp" "/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir/sources/Json.cpp.o"
+  "/Users/dmitrij/CLionProjects/lab-01-parser/tests/test.cpp" "/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir/tests/test.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
-  "/home/cezar/.hunter/_Base/9a3594a/70e2fd0/48401e9/Install/include"
+  "/Users/dmitrij/.hunter/_Base/9a3594a/7e73122/c351cc1/Install/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/json_parser.dir/DependInfo.cmake"
+  "/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/json_parser.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

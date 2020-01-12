@@ -1,8 +1,8 @@
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/task3.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/json_parser.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/main.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/Json.dir
-/home/cezar/CERZAR/workspace/labs/lab-01-parser/cmake-build-debug/CMakeFiles/test.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/test.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/main.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/task3.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/Json.dir
+/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/json_parser.dir
