@@ -12,7 +12,7 @@ void Json::check_str(const std::string& s) {
 }
 
 void Json::check_whitespace(const std::string& s) {
-  if ((int)s.find_first_not_of(" \n\t") != -1) throw std::exception();
+  if (static_cast<int> (s.find_first_not_of(" \n\t")) != -1) throw std::exception();
 }
 
 int Json::get_int(const std::string& s) { return std::stoi(s); }
@@ -42,8 +42,8 @@ int Json::find_end(const std::string& s, char close) {
   str.push_back(close);
   while (count_open != count_close) {
     x++;
-    if ((int)s.substr(x).find_first_of(str) != -1) {
-      x = (int)s.substr(x).find_first_of(str) + x;
+    if (static_cast<int> (s.substr(x).find_first_of(str)) != -1) {
+      x = static_cast<int> (s.substr(x).find_first_of(str) + x);
       if (s[x] == open)
         count_open++;
       else
@@ -60,8 +60,8 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
     std::string key = "";
     std::any value = nullptr;
     a = b + 1;
-    b = (int)s.substr(a).find('\"') + a;
-    if ((int)s.substr(a).find('\"') == -1) {
+    b = static_cast<int> (s.substr(a).find('\"') + a);
+    if (static_cast<int> (s.substr(a).find('\"'))== -1) {
       if (map.empty()) {
         b = s.substr(a).find('}') + a;
         check_whitespace(s.substr(a, b - a));
@@ -71,16 +71,16 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
     }
     check_whitespace(s.substr(a, b - a));
     a = b + 1;
-    b = (int)s.substr(a).find('\"') + a;
+    b = static_cast<int> (s.substr(a).find('\"') + a);
     //        if ((int)s.substr(a).find('\"') == -1)
     //            throw std::exception();
     key = s.substr(a, b - a);
     a = b + 1;
-    b = (int)s.substr(a).find(':') + a;
-    if ((int)s.substr(a).find(':') == -1) throw std::exception();
+    b = static_cast<int> (s.substr(a).find(':') + a);
+    if (static_cast<int> (s.substr(a).find(':')) == -1) throw std::exception();
     check_whitespace(s.substr(a, b - a));
     a = b + 1;
-    b = (int)s.substr(a).find_first_of("{[\"0123456789tfn-") + a;
+    b = static_cast<int> (s.substr(a).find_first_of("{[\"0123456789tfn-") + a);
     //        if ((int)s.substr(a).find_first_of("{[\"0123456789tfn-") == -1)
     //            throw std::exception();
     check_whitespace(s.substr(a, b - a));
@@ -99,8 +99,8 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
       }
       case '\"': {
         a = b + 1;
-        b = (int)s.substr(a).find('\"') + a;
-        if ((int)s.substr(a).find('\"') == -1) throw std::exception();
+        b = static_cast<int> (s.substr(a).find('\"') + a);
+        if (static_cast<int> (s.substr(a).find('\"')) == -1) throw std::exception();
         value = s.substr(a, b - a);
         break;
       }
@@ -116,32 +116,32 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
       case '9':
       case '-': {
         a = b;
-        b = (int)s.substr(a).find_first_of(" \t\n,}]") + a;
+        b = static_cast<int> (s.substr(a).find_first_of(" \t\n,}]") + a);
         //                if ((int)s.substr(a).find_first_of(" \t\n,}]") == -1)
         //                    throw std::exception();
         b--;
-        if ((int)s.substr(a + 1, b - a).find_first_not_of("0123456789") == -1) {
+        if (static_cast<int> (s.substr(a + 1, b - a).find_first_not_of("0123456789")) == -1) {
           value = get_int(s.substr(a, b - a + 1));
         } else {
-          if ((int)s.substr(a + 1, b - a)
-                  .find_first_not_of("0123456789.eE+-") != -1)
+          if (static_cast<int> (s.substr(a + 1, b - a)
+                  .find_first_not_of("0123456789.eE+-")) != -1)
             throw std::exception();
-          if ((int)s.substr(a + 1, b - a).find('.') != -1) {
-            int c = (int)s.substr(a + 1, b - a).find('.') + a + 1;
+          if (static_cast<int> (s.substr(a + 1, b - a).find('.')) != -1) {
+            int c = static_cast<int> (s.substr(a + 1, b - a).find('.') + a + 1);
             //                        if ((int)s.substr(c + 1, b - c).find('.')
             //                        != -1)
             //                            throw std::exception();
-            if ((int)s.substr(c - 1, 1).find_first_not_of("0123456789") != -1 ||
-                (int)s.substr(c + 1, 1).find_first_not_of("0123456789") != -1)
+            if (static_cast<int>(s.substr(c - 1, 1).find_first_not_of("0123456789")) != -1 ||
+                    static_cast<int> (s.substr(c + 1, 1).find_first_not_of("0123456789")) != -1)
               throw std::exception();
           }
-          if ((int)s.substr(a + 1, b - a).find_first_of("+-") != -1) {
-            int c = (int)s.substr(a + 1, b - a).find_first_of("+-") + a + 1;
+          if (static_cast<int> (s.substr(a + 1, b - a).find_first_of("+-")) != -1) {
+            int c = static_cast<int> (s.substr(a + 1, b - a).find_first_of("+-") + a + 1);
             if (!(s[c - 1] == 'e' || s[c - 1] == 'E')) throw std::exception();
           }
-          if ((int)s.substr(a + 1, b - a).find_first_of("eE") != -1) {
-            int c = (int)s.substr(a + 1, b - a).find_first_of("eE") + a + 1;
-            if ((int)s.substr(c + 1, b - c).find_first_of("eE") != -1)
+          if (static_cast<int> (s.substr(a + 1, b - a).find_first_of("eE")) != -1) {
+            int c = static_cast<int> (s.substr(a + 1, b - a).find_first_of("eE") + a + 1);
+            if (static_cast<int> (s.substr(c + 1, b - c).find_first_of("eE")) != -1)
               throw std::exception();
           }
           value = get_double(s.substr(a, b - a + 1));
@@ -165,8 +165,8 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
     }
     map.insert({key, value});
     a = b + 1;
-    b = (int)s.substr(a).find_first_of(",}") + a;
-    if ((int)s.substr(a).find_first_of(",}") == -1) throw std::exception();
+    b = static_cast<int>(s.substr(a).find_first_of(",}") + a);
+    if (static_cast<int> (s.substr(a).find_first_of(",}")) ==  -1) throw std::exception();
     if (s[b] == '}') {
       check_whitespace(s.substr(a, b - a));
       break;
@@ -181,8 +181,8 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
   while (true) {
     std::any value = nullptr;
     a = b + 1;
-    b = (int)s.substr(a).find_first_of("{[\"0123456789tfn-") + a;
-    if ((int)s.substr(a).find_first_of("{[\"0123456789tfn-") == -1) {
+    b = static_cast<int> (s.substr(a).find_first_of("{[\"0123456789tfn-") + a);
+    if (static_cast<int> (s.substr(a).find_first_of("{[\"0123456789tfn-")) == -1) {
       if (vector.empty()) {
         b = s.substr(a).find(']') + a;
         check_whitespace(s.substr(a, b - a));
@@ -206,8 +206,8 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
       }
       case '\"': {
         a = b + 1;
-        b = (int)s.substr(a).find('\"') + a;
-        if ((int)s.substr(a).find('\"') == -1) throw std::exception();
+        b = static_cast<int> (s.substr(a).find('\"') + a);
+        if (static_cast<int> (s.substr(a).find('\"'))== -1) throw std::exception();
         value = s.substr(a, b - a);
         break;
       }
@@ -223,31 +223,31 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
       case '9':
       case '-': {
         a = b;
-        b = (int)s.substr(a).find_first_of(" \t\n,}]") + a;
+        b = static_cast<int> (s.substr(a).find_first_of(" \t\n,}]") + a);
         //                if ((int)s.substr(a).find_first_of(" \t\n,}]") == -1)
         //                    throw std::exception();
         b--;
-        if ((int)s.substr(a + 1, b - a).find_first_not_of("0123456789") == -1) {
+        if (static_cast<int> (s.substr(a + 1, b - a).find_first_not_of("0123456789")) == -1) {
           value = get_int(s.substr(a, b - a + 1));
         } else {
-          if ((int)s.substr(a + 1, b - a)
-                  .find_first_not_of("0123456789.eE+-") != -1)
+          if (static_cast<int> (s.substr(a + 1, b - a)
+                  .find_first_not_of("0123456789.eE+-")) != -1)
             throw std::exception();
-          if ((int)s.substr(a + 1, b - a).find('.') != -1) {
-            int c = (int)s.substr(a + 1, b - a).find('.') + a + 1;
+          if (static_cast<int> (s.substr(a + 1, b - a).find('.'))!= -1) {
+            int c = static_cast<int> (s.substr(a + 1, b - a).find('.') + a + 1);
             if (static_cast<int> (s.substr(c + 1, b - c).find('.') )!= -1)
               throw std::exception();
-            if ((int)s.substr(c - 1, 1).find_first_not_of("0123456789") != -1 ||
-                (int)s.substr(c + 1, 1).find_first_not_of("0123456789") != -1)
+            if (static_cast<int> (s.substr(c - 1, 1).find_first_not_of("0123456789")) != -1 ||
+                    static_cast<int>(s.substr(c + 1, 1).find_first_not_of("0123456789")) != -1)
               throw std::exception();
           }
-          if ((int)s.substr(a + 1, b - a).find_first_of("+-") != -1) {
-            int c = (int)s.substr(a + 1, b - a).find_first_of("+-") + a + 1;
+          if (static_cast<int> (s.substr(a + 1, b - a).find_first_of("+-")) != -1) {
+            int c = static_cast<int> (s.substr(a + 1, b - a).find_first_of("+-") + a + 1);
             if (!(s[c - 1] == 'e' || s[c - 1] == 'E')) throw std::exception();
           }
-          if ((int)s.substr(a + 1, b - a).find_first_of("eE") != -1) {
-            int c = (int)s.substr(a + 1, b - a).find_first_of("eE") + a + 1;
-            if ((int)s.substr(c + 1, b - c).find_first_of("eE") != -1)
+          if (static_cast<int> (s.substr(a + 1, b - a).find_first_of("eE")) != -1) {
+            int c = static_cast<int> (s.substr(a + 1, b - a).find_first_of("eE") + a + 1);
+            if (static_cast<int> (s.substr(c + 1, b - c).find_first_of("eE")) != -1)
               throw std::exception();
           }
           value = get_double(s.substr(a, b - a + 1));
@@ -271,7 +271,7 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
     }
     vector.push_back(value);
     a = b + 1;
-    b = (int)s.substr(a).find_first_of(",]") + a;
+    b = static_cast<int>(s.substr(a).find_first_of(",]") + a);
     //        if ((int)s.substr(a).find_first_of(",]") == -1)
     //            throw std::exception();
     if (s[b] == ']') {
@@ -332,18 +332,3 @@ Json Json::parse(const std::string& s) {
   return A;
 }
 
-// Json Json::parseFile(const std::string& path_to_file)
-//{
-//    std::string s;
-//    std::ifstream fstr;
-//    fstr.open(path_to_file);
-//    if (fstr)
-//        while (!fstr.eof())
-//        {
-//            std::string b;
-//            std::getline(fstr, b);
-//            s += b;
-//        }
-//    Json A(s);
-//    return A;
-//}
