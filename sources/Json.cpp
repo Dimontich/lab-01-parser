@@ -28,8 +28,9 @@ bool Json::get_bool(const std::string& s, int& b) {
   } else if (s.substr(0, 5) == "false") {
     b += 4;
     return false;
-  } else
+  } else{
     throw std::exception();
+  }
 }
 
 int Json::find_end(const std::string& s, char close) {
@@ -50,8 +51,9 @@ int Json::find_end(const std::string& s, char close) {
         count_open++;
       else
         count_close++;
-    } else
+    } else {
       throw std::exception();
+    }
   }
   return x;
 }
@@ -68,8 +70,9 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
         b = s.substr(a).find('}') + a;
         check_whitespace(s.substr(a, b - a));
         break;
-      } else
+      } else {
         throw std::exception();
+      }
     }
     check_whitespace(s.substr(a, b - a));
     a = b + 1;
@@ -170,8 +173,9 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
         if (s.substr(a, 4) == "null") {
           b += 3;
           value = nullptr;
-        } else
+        } else {
           throw std::exception();
+        }
       }
     }
     map.insert({key, value});
@@ -182,8 +186,9 @@ void Json::parse_object(const std::string& s, int& a, int& b) {
     if (s[b] == '}') {
       check_whitespace(s.substr(a, b - a));
       break;
-    } else
+    } else {
       check_whitespace(s.substr(a, b - a));
+    }
   }
   if (!map.empty()) json_map = map;
 }
@@ -200,8 +205,9 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
         b = s.substr(a).find(']') + a;
         check_whitespace(s.substr(a, b - a));
         break;
-      } else
+      } else {
         throw std::exception();
+      }
     }
     check_whitespace(s.substr(a, b - a));
     switch (s[b]) {
@@ -287,8 +293,9 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
         if (s.substr(a, 4) == "null") {
           b += 3;
           value = nullptr;
-        } else
+        } else {
           throw std::exception();
+        }
       }
     }
     vector.push_back(value);
@@ -299,8 +306,9 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
     if (s[b] == ']') {
       check_whitespace(s.substr(a, b - a));
       break;
-    } else
+    } else {
       check_whitespace(s.substr(a, b - a));
+    }
   }
   if (!vector.empty()) json_map = vector;
 }
