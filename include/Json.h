@@ -1,6 +1,4 @@
-//
-// Created by cezar on 12.10.2019.
-//
+// Copyright 2019  Dimontich
 
 #ifndef JSON_PARSER_JSON_H
 #define JSON_PARSER_JSON_H
