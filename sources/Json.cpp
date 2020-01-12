@@ -235,7 +235,7 @@ void Json::parse_array(const std::string& s, int& a, int& b) {
             throw std::exception();
           if ((int)s.substr(a + 1, b - a).find('.') != -1) {
             int c = (int)s.substr(a + 1, b - a).find('.') + a + 1;
-            if ((int)s.substr(c + 1, b - c).find('.') != -1)
+            if (static_cast<int> (s.substr(c + 1, b - c).find('.') )!= -1)
               throw std::exception();
             if ((int)s.substr(c - 1, 1).find_first_not_of("0123456789") != -1 ||
                 (int)s.substr(c + 1, 1).find_first_not_of("0123456789") != -1)
