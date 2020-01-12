@@ -1,8 +1,0 @@
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/test.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/main.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/tests.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/task3.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/Json.dir
-/Users/dmitrij/CLionProjects/lab-01-parser/cmake-build-debug/CMakeFiles/json_parser.dir
