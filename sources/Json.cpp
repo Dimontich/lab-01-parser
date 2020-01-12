@@ -7,8 +7,9 @@ void Json::check_str(const std::string& s) {
   if ((f == -1) || (l == -1)) throw std::exception();
   if (s[f] == '{') {
     if (s[l] != '}') throw std::exception();
-  } else if (s[l] != ']')
+  } else if (s[l] != ']') {
     throw std::exception();
+  }
 }
 
 void Json::check_whitespace(const std::string& s) {

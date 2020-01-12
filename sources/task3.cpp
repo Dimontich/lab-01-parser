@@ -1,4 +1,4 @@
-// Created by Dimontich
+// Copyright 2019  Dimontich
 
 #include <iostream>
 #include <nlohmann/json.hpp>
