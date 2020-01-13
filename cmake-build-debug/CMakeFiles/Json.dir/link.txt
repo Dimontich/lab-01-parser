@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libJsond.a  CMakeFiles/Json.dir/sources/Json.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libJsond.a
